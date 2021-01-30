@@ -5,17 +5,17 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "browser-sync start --port 8080 --server 'src' --files 'src' --single",
+    "start": "browser-sync start --port 8080 --server --files 'src' --single --directory --no-open",
     "build": "rollup src/main.js --file dist/bundle.js --format iife"
   },
   "author": {
     "name": "Vaclav Klecanda <vencax77@gmail.com>"
   },
   "license": "BSD",
-  "devDependencies": {
-    "browser-sync": "^2.24.1"
-  },
   "dependencies": {
     "rollup": "^1.29.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.14"
   }
 }
