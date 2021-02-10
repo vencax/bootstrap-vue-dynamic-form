@@ -1,14 +1,14 @@
 export default [
   {
     component: 'dyn-input',
-    label:'Název',
-    name:'nazev',
+    label: 'Název',
+    name: 'nazev',
     rules: 'required'
   },
   {
     component: 'dyn-select',
-    label:'Stadium',
-    name:'stadium',
+    label: 'Stadium',
+    name: 'stadium',
     options: [
       { value: 'a', text: 'OPT A' },
       { value: 'b', text: 'OPT B' }
@@ -17,14 +17,14 @@ export default [
   {
     component: 'dyn-input',
     type: 'number',
-    label:'Cena',
-    name:'cena',
+    label: 'Cena',
+    name: 'cena',
     rules: 'required'
   },
   {
     component: 'dyn-textarea',
     rows: '4',
-    label:'Popis',
-    name:'popis'
+    label: 'Popis',
+    name: 'popis'
   }
 ]

@@ -1,7 +1,7 @@
 {
-  "name": "project-stack-webclient",
-  "title": "Task manager webclient",
-  "description": "part of webclient pro manazovani zasobniku akci",
+  "name": "bootstrap-vue-dynamic-form",
+  "title": "BootstrapVue dynamic form",
+  "description": "simple lib for construct bs-vue form based on config",
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
