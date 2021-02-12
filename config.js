@@ -31,6 +31,7 @@ export default [
     component: 'dyn-listeditor',
     name: 'obrazky',
     label: 'Obrázky',
+    rowcomponent: 'obrazekInfo',
     form: [
       {
         name: 'url',

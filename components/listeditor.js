@@ -1,5 +1,10 @@
 import listForm from './listform.js'
 
+const defaultRowComponent = {
+  props: ['row'],
+  template: '<span>{{ row }}</span>'
+}
+
 export default {
   data: () => {
     return {
@@ -28,18 +33,25 @@ export default {
       }
     }
   },
-  components: { listForm },
+  components: { listForm, defaultRowComponent },
   template: `
 <validation-provider v-bind:rules="config.rules" v-slot="{ errors }">
   <span>{{ config.label }} <b-button variant="success" v-if="!visible" @click="edit()">+</b-button></span>
-  <ul>
-    <li v-for="(i, idx) in $props.data[config.name]" :key="idx">
-      {{ i }} <b-button-group>
-        <b-button variant="warning" @click="edit(i)">edit</b-button>
-        <b-button variant="danger" @click="remove(i)">-</b-button>
-      </b-button-group>
-    </li>
-  </ul>
+  <table class="table table-striped">
+    <tbody>
+      <tr v-for="(i, idx) in $props.data[config.name]" :key="idx">
+        <td>
+          <component :is="config.rowcomponent || 'defaultRowComponent'" :row="i"/>
+        </td>
+        <td>
+          <b-button-group>
+            <b-button variant="warning" @click="edit(i)">edit</b-button>
+            <b-button variant="danger" @click="remove(i)">-</b-button>
+          </b-button-group>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   <listForm v-if="visible" :onSubmit="onSubmit"
     :original="original" :config="config.form" />

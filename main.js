@@ -11,6 +11,11 @@ Vue.component('ValidationObserver', VeeValidate.ValidationObserver)
 
 VeeValidate.extend('required', VeeValidateRules.required)
 
+Vue.component('obrazekInfo', {
+  props: ['row'],
+  template: '<span>Name: {{ row.name }}, URL: {{ row.url }}</span>'
+})
+
 new Vue({
   components: formComponents,
   data: {
