@@ -23,14 +23,17 @@ export default {
       const idx = data.indexOf(item)
       data.splice(idx, 1)
     },
-    onSubmit (data) {
+    onSubmit (newdata) {
       this.$data.visible = false
-      if (!data) return
+      if (!newdata) return
       if (this.$data.original) {
-        Object.assign(this.$data.original, data)
+        const data = this.$props.data[this.$props.config.name]
+        const idx = data.indexOf(this.$data.original)
+        data[idx] = newdata
       } else {
-        this.$props.data[this.$props.config.name].push(data)
+        this.$props.data[this.$props.config.name].push(newdata)
       }
+      this.$emit('input', this.$props.data[this.$props.config.name])
     }
   },
   components: { listForm, defaultRowComponent },

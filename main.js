@@ -29,7 +29,8 @@ new Vue({
       stadium: 'uuu',
       zanr: '',
       obrazky: [
-        { url: 'koko', name: '' }
+        { url: 'koko', name: 'margot' },
+        { url: 'banany', name: 'pomy' }
       ]
     }
   },
