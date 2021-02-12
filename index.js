@@ -1,9 +1,6 @@
-import text from './components/input.js'
-import select from './components/select.js'
-import textarea from './components/textarea.js'
+import components from './components/index.js'
+import listeditor from './components/listeditor.js'
 
-export default {
-  'dyn-input': text,
-  'dyn-select': select,
-  'dyn-textarea': textarea
-}
+export default Object.assign(components, {
+  'dyn-listeditor': listeditor
+})

@@ -1,4 +1,5 @@
-/* global Vue, VueMarkdown, VeeValidate, VeeValidateRules */
+/* global Vue, VueMarkdown, VeeValidate,
+  VueBootstrapTypeahead, VeeValidateRules */
 import './vuecustoms.js'
 import formComponents from './index.js'
 import config from './config.js'
@@ -12,7 +13,7 @@ VeeValidate.extend('required', VeeValidateRules.required)
 
 new Vue({
   components: formComponents,
-  data: { 
+  data: {
     config,
     item: {
       nazev: 'rr',
@@ -21,7 +22,10 @@ new Vue({
       cena: '',
       poloha: '',
       stadium: 'uuu',
-      zanr: ''
+      zanr: '',
+      obrazky: [
+        { url: 'koko', name: '' }
+      ]
     }
   },
   template: `

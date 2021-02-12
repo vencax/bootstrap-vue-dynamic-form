@@ -26,5 +26,23 @@ export default [
     rows: '4',
     label: 'Popis',
     name: 'popis'
+  },
+  {
+    component: 'dyn-listeditor',
+    name: 'obrazky',
+    label: 'Obrázky',
+    form: [
+      {
+        name: 'url',
+        component: 'dyn-input',
+        label: 'Odkaz',
+        rules: 'required'
+      },
+      {
+        name: 'name',
+        component: 'dyn-input',
+        label: 'Název'
+      }
+    ]
   }
 ]
