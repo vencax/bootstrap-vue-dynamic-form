@@ -16,7 +16,7 @@ export default [
   },
   {
     component: 'dyn-input',
-    type: 'number',
+    inputtype: 'number',
     label: 'Cena',
     name: 'cena',
     rules: 'required'
