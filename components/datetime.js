@@ -18,14 +18,14 @@ export default {
       const parts = val.split(':')
       this.$data.datetime.set('hour', parts[0])
       this.$data.datetime.set('minute', parts[1])
-      this.$props.data[this.$props.config.name] = this.$data.datetime.toString()
+      this.$props.data[this.$props.config.name] = this.$data.datetime.toISOString()
     },
     onDate(val) {
       const parts = val.split('-')
       this.$data.datetime.set('year', parts[0])
       this.$data.datetime.set('month', parts[1])
       this.$data.datetime.set('date', parts[2])
-      this.$props.data[this.$props.config.name] = this.$data.datetime.toString()
+      this.$props.data[this.$props.config.name] = this.$data.datetime.toISOString()
     }
   },
   template: `

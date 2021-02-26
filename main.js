@@ -27,7 +27,7 @@ new Vue({
       cena: '',
       poloha: '',
       stadium: 'uuu',
-      approved: (new Date()).toUTCString(),
+      approved: moment().toISOString(),
       zanr: '',
       obrazky: [
         { url: 'koko', name: 'margot' },
