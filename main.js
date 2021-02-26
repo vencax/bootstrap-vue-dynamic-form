@@ -27,6 +27,7 @@ new Vue({
       cena: '',
       poloha: '',
       stadium: 'uuu',
+      approved: (new Date()).toUTCString(),
       zanr: '',
       obrazky: [
         { url: 'koko', name: 'margot' },

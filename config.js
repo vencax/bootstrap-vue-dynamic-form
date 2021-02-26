@@ -22,6 +22,12 @@ export default [
     rules: 'required'
   },
   {
+    component: 'dyn-datetime',
+    label: 'Schavelni',
+    name: 'approved',
+    rules: 'required'
+  },
+  {
     component: 'dyn-textarea',
     rows: '4',
     label: 'Popis',
