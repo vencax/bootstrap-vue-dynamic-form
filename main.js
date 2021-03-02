@@ -23,12 +23,9 @@ new Vue({
     item: {
       nazev: 'rr',
       popis: 'zaklad',
-      manager: '',
-      cena: '',
-      poloha: '',
-      stadium: 'uuu',
+      stadium: 'a',
+      cena: null,
       approved: moment().toISOString(),
-      zanr: '',
       soubor: null,
       obrazky: [
         { url: 'koko', name: 'margot' },
@@ -36,11 +33,20 @@ new Vue({
       ]
     }
   },
+  methods: {
+    handleSubmit: function () {
+      alert(this.$data.item)
+    }
+  },
   template: `
-<ValidationObserver v-slot="{ invalid }">
+
+<ValidationObserver v-slot="{ invalid, errors }">
   <form @submit.prevent="handleSubmit">
 
-    {{ item }}
+    <code>{{ item }}</code>
+
+    {{ errors }}
+    {{ invalid }}
 
     <component v-for="i in config" :key="i.name" :is="i.component" :config="i" :data="item">
     </component>
