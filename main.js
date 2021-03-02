@@ -29,6 +29,7 @@ new Vue({
       stadium: 'uuu',
       approved: moment().toISOString(),
       zanr: '',
+      soubor: null,
       obrazky: [
         { url: 'koko', name: 'margot' },
         { url: 'banany', name: 'pomy' }

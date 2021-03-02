@@ -28,6 +28,13 @@ export default [
     rules: 'required'
   },
   {
+    component: 'dyn-fileinput',
+    label: 'Soubor',
+    name: 'soubor',
+    placeholder: 'Vyber soubor',
+    rules: 'required'
+  },
+  {
     component: 'dyn-textarea',
     rows: '4',
     label: 'Popis',
