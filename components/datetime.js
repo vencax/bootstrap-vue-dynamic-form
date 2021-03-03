@@ -18,12 +18,13 @@ export default {
       const parts = val.split(':')
       this.$data.datetime.set('hour', parts[0])
       this.$data.datetime.set('minute', parts[1])
+      this.$data.datetime.set('second', parts[2])
       this.$props.data[this.$props.config.name] = this.$data.datetime.toISOString()
     },
     onDate(val) {
       const parts = val.split('-')
       this.$data.datetime.set('year', parts[0])
-      this.$data.datetime.set('month', parts[1])
+      this.$data.datetime.set('month', Number(parts[1]) - 1)
       this.$data.datetime.set('date', parts[2])
       this.$props.data[this.$props.config.name] = this.$data.datetime.toISOString()
     }
