@@ -9,9 +9,10 @@ export default {
   props: ['config', 'disabled', 'data'],
   created () {
     const m = moment(this.$props.data[this.$props.config.name])
-    this.$data.datetime = m
-    this.$data.date = m.format("YYYY-MM-DD")
-    this.$data.time = m.format("HH:mm")
+    const valid = m.isValid()
+    this.$data.datetime = valid ? m : moment()
+    this.$data.date = valid ? m.format("YYYY-MM-DD") : null
+    this.$data.time = valid ? m.format("HH:mm") : null
   },
   methods: {
     onTime(val) {
@@ -41,7 +42,7 @@ export default {
       <div class="col-sm-6">
 
         <b-form-datepicker
-          v-model="date" 
+          v-model="date"
           @input="onDate"
           :state="errors.length === 0"
           :options="config.options"
@@ -52,9 +53,9 @@ export default {
 
       <div class="col-sm-6">
 
-        <b-form-timepicker 
-          v-model="time" 
-          :locale="config.locale || 'cs'" 
+        <b-form-timepicker
+          v-model="time"
+          :locale="config.locale || 'cs'"
           @input="onTime"
           :state="errors.length === 0"
           :disabled="disabled">

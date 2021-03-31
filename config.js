@@ -31,8 +31,7 @@ export default [
     component: 'dyn-fileinput',
     label: 'Soubor',
     name: 'soubor',
-    placeholder: 'Vyber soubor',
-    rules: 'required'
+    placeholder: 'Vyber soubor'
   },
   {
     component: 'dyn-textarea',
