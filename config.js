@@ -40,6 +40,16 @@ export default [
     name: 'popis'
   },
   {
+    component: 'dyn-taginput',
+    label: 'Tagy',
+    name: 'tags',
+    options: [
+      { value: 'a', text: 'TAG A' },
+      { value: 'b', text: 'TAG B' }
+    ],
+    placeholder: 'Vyber ze seznamu'
+  },
+  {
     component: 'dyn-listeditor',
     name: 'obrazky',
     label: 'Obrázky',

@@ -2,7 +2,7 @@
   "name": "bootstrap-vue-dynamic-form",
   "title": "BootstrapVue dynamic form",
   "description": "simple lib for construct bs-vue form based on config",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "main": "index.js",
   "scripts": {
     "start": "browser-sync start --port 8080 --server --files 'src' --single --directory --no-open",

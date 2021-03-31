@@ -31,7 +31,8 @@ new Vue({
       obrazky: [
         { url: 'koko', name: 'margot' },
         { url: 'banany', name: 'pomy' }
-      ]
+      ],
+      tags: 'b'
     }
   },
   methods: {
