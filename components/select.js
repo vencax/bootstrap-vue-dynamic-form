@@ -14,11 +14,8 @@ export default {
           text: i[attrmap.text || 'text']
         }
       })
-    }
-  },
-  computed: {
-    opts: function () {
-      return this.$data.options || this.$props.config.options
+    } else {
+      this.$data.options = this.$props.config.options
     }
   },
   props: ['config', 'disabled', 'data'],
@@ -34,7 +31,7 @@ export default {
       :value="data[config.name]"
       @input="v => data[config.name] = v"
       :state="errors.length === 0" 
-      :options="opts" 
+      :options="$data.options" 
       :disabled="disabled">
     </b-form-select>
 
