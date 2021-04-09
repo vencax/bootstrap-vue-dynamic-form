@@ -15,6 +15,13 @@ export default [
     ]
   },
   {
+    component: 'dyn-select',
+    label: 'Stadium2',
+    name: 'stadium2',
+    options: 'http://localhost:33333',
+    attrmap: { value: 'val', text: 'label' }
+  },
+  {
     component: 'dyn-input',
     inputtype: 'number',
     label: 'Cena',

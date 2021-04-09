@@ -25,6 +25,7 @@ new Vue({
       nazev: 'rr',
       popis: 'zaklad',
       stadium: 'a',
+      stadium2: null,
       cena: null,
       approved: null,
       soubor: null,
