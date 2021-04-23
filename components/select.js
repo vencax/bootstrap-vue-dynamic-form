@@ -1,3 +1,5 @@
+import { getOptions } from './utils.js'
+
 export default {
   data: () => {
     return {
@@ -5,18 +7,7 @@ export default {
     }
   },
   async created () {
-    if (_.isString(this.$props.config.options)) {
-      const req = await axios.get(this.$props.config.options)
-      const attrmap = this.$props.config.attrmap || {}
-      this.$data.options = _.map(req.data, i => {
-        return {
-          value: i[attrmap.value || 'value'],
-          text: i[attrmap.text || 'text']
-        }
-      })
-    } else {
-      this.$data.options = this.$props.config.options
-    }
+    this.$data.options = await getOptions(this.$props.config)
   },
   props: ['config', 'disabled', 'data'],
   template: `

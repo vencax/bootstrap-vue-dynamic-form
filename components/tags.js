@@ -1,25 +1,29 @@
+import { getOptions } from './utils.js'
+
 export default {
   data: () => {
     return {
       value: [],
-      selected: ''
+      selected: '',
+      options: []
     }
   },
   computed: {
     availableOptions () {
-      return this.$props.config.options.filter(opt => {
+      return this.$data.options.filter(opt => {
         return this.value.indexOf(opt.value) === -1
       })
     }
   },
-  created () {
+  async created () {
     const v = this.$props.data[this.$props.config.name]
     this.$data.value = v ? v.split(',') : []
+    this.$data.options = await getOptions(this.$props.config)
   },
   props: ['config', 'disabled', 'data'],
   methods: {
     selectedOptions (tags) {
-      return this.$props.config.options.filter(opt => {
+      return this.$data.options.filter(opt => {
         return this.value.indexOf(opt.value) >= 0
       })
     },
