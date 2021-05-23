@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "browser-sync start --port 8080 --server --files 'src' --single --directory --no-open",
-    "build": "rollup src/main.js --file dist/bundle.js --format iife"
+    "build": "rollup index.js --file dist/bundle.js --format iife --name BSVueDynamicForm"
   },
   "author": {
     "name": "Vaclav Klecanda <vencax77@gmail.com>"
