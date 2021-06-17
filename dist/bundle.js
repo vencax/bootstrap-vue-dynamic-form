@@ -159,19 +159,35 @@ var BSVueDynamicForm = (function () {
   `
   };
 
+  const m = 'Jméno souboru obsahuje diakritiku. Přejmenujete jej a vyberte znovu.';
+  VeeValidate.extend('filenameWithoutDiacritics', {
+    getMessage: field => m,
+    validate: value => {
+      const m = value.name.match(/[\w.-]+/g);
+      return m && m.length > 0 && m[0] === value.name
+    }
+  });
+
   var file = {
+    async created () {
+      this.$props.config.rules = this.$props.config.rules
+        ? this.$props.config.rules + '|filenameWithoutDiacritics'
+        : 'filenameWithoutDiacritics';
+    },
+    computed: {
+      m: () => m
+    },
     props: ['config', 'disabled', 'data'],
     template: `
-<validation-provider v-bind:rules="config.rules" v-slot="{ errors }">
+<validation-provider :name="config.name" :rules="config.rules" v-slot="{ valid, errors }">
   <b-form-group
-    :state="errors.length === 0"
     :label="config.label"
-    :invalid-feedback="errors[0]"
+    :invalid-feedback="m"
   >
     <b-form-file
       :value="data[config.name]"
       @input="v => data[config.name] = v"
-      :state="errors.length === 0"
+      :state="errors[0] ? false : (valid ? true : null)"
       :disabled="disabled"
       :placeholder="config.placeholder || 'Choose a file or drop it here...'"
     ></b-form-file>
