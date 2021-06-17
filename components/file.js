@@ -1,17 +1,19 @@
 const m = 'Jméno souboru obsahuje diakritiku. Přejmenujete jej a vyberte znovu.'
-VeeValidate.extend('filenameWithoutDiacritics', {
+
+export const WITHOUT_DIACRITICS_VALIDATOR_NAME = 'filenameWithoutDiacritics'
+export const WITHOUT_DIACRITICS_VALIDATOR = {
   getMessage: field => m,
   validate: value => {
     const m = value.name.match(/[\w.-]+/g)
     return m && m.length > 0 && m[0] === value.name
   }
-})
+}
 
 export default {
   async created () {
     this.$props.config.rules = this.$props.config.rules
-      ? this.$props.config.rules + '|filenameWithoutDiacritics'
-      : 'filenameWithoutDiacritics'
+      ? this.$props.config.rules + '|' + WITHOUT_DIACRITICS_VALIDATOR_NAME
+      : WITHOUT_DIACRITICS_VALIDATOR_NAME
   },
   computed: {
     m: () => m
