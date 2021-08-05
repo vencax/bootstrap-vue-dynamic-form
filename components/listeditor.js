@@ -22,6 +22,23 @@ export default {
       const data = this.$props.data[this.$props.config.name]
       const idx = data.indexOf(item)
       data.splice(idx, 1)
+      this.$emit('input', this.$props.data[this.$props.config.name])
+    },
+    moveup (item) {
+      const data = this.$props.data[this.$props.config.name]
+      const idx = data.indexOf(item)
+      const newIdx = idx === 0 ? (data.length - 1) : (idx - 1)
+      const tmp = Object.assign({}, data[idx])
+      Object.assign(data[idx], {}, data[newIdx])
+      Object.assign(data[newIdx], {}, tmp)
+    },
+    movedown (item) {
+      const data = this.$props.data[this.$props.config.name]
+      const idx = data.indexOf(item)
+      const newIdx = idx === (data.length - 1) ? 0 : (idx + 1)
+      const tmp = Object.assign({}, data[idx])
+      Object.assign(data[idx], {}, data[newIdx])
+      Object.assign(data[newIdx], {}, tmp)
     },
     onSubmit (newdata) {
       this.$data.visible = false
@@ -48,16 +65,28 @@ export default {
         </td>
         <td>
           <b-button-group>
-            <b-button variant="warning" @click="edit(i)">edit</b-button>
-            <b-button variant="danger" @click="remove(i)">-</b-button>
+            <b-button variant="warning" @click="edit(i)">
+              <i class="fas fa-edit"></i>
+            </b-button>
+            <b-button variant="danger" @click="remove(i)">
+              <i class="fas fa-trash-alt"></i>
+            </b-button>
+            <b-button variant="info" @click="moveup(i)">
+              <i class="fas fa-arrow-up"></i>
+            </b-button>
+            <b-button variant="secondary" @click="movedown(i)">
+              <i class="fas fa-arrow-down"></i>
+            </b-button>
           </b-button-group>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <listForm v-if="visible" :onSubmit="onSubmit"
-    :original="original" :config="config.form" />
+  <b-modal v-model="visible" size="xl" id="modal-add" title="Upravit" hide-footer>
+    <listForm :onSubmit="onSubmit"
+      :original="original" :config="config.form" />
+  </b-modal>
 
 </validation-provider>
   `

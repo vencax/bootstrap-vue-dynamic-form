@@ -13,7 +13,7 @@ VeeValidate.extend('required', VeeValidateRules.required)
 
 Vue.component('obrazekInfo', {
   props: ['row'],
-  template: '<span>Name: {{ row.name }}, URL: {{ row.url }}</span>'
+  template: '<span>Name: <b>{{ row.name }}</b>, URL: {{ row.url }}</span>'
 })
 
 new Vue({
@@ -31,7 +31,8 @@ new Vue({
       soubor: null,
       obrazky: [
         { url: 'koko', name: 'margot' },
-        { url: 'banany', name: 'pomy' }
+        { url: 'banany', name: 'pomy' },
+        { url: 'vopice', name: 'pomy' }
       ],
       tags: 'b'
     }
