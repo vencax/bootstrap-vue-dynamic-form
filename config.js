@@ -35,6 +35,11 @@ export default [
     rules: 'required'
   },
   {
+    component: 'dyn-date',
+    label: 'Datum',
+    name: 'appdate'
+  },
+  {
     component: 'dyn-fileinput',
     label: 'Soubor',
     name: 'soubor',
